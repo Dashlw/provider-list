@@ -1,0 +1,65 @@
+<mat-toolbar color="primary">
+  <span>XYZ Insurance</span>
+</mat-toolbar>
+<div class="provider-page">
+  <div class="subheader">
+    <h2>Provider Search</h2>
+    <button
+        onclick="this.blur()"
+        type="button"
+        mat-raised-button
+        color="primary"
+        (click)="clearList()">
+      CLEAR LIST
+    </button>
+  </div>
+  <div class="col">
+    <section>
+      <h3>Unselected Providers</h3>
+      <mat-card class="example-card" *ngFor="let provider of unselectedProviders">
+        <mat-card-header>
+          <mat-card-subtitle>XYZ Insurance</mat-card-subtitle>
+          <mat-card-title>{{provider.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{provider.address}}</p>
+          <p>{{provider.phone}}</p>
+          <mat-divider></mat-divider>
+          <mat-card-actions>
+            <button
+                onclick="this.blur()"
+                type="button"
+                mat-button
+                (click)="saveProvider(provider)">
+              SAVE
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+    </section>
+    <section>
+      <h3>Saved Providers</h3>
+      <div *ngIf="selectedProviders.length > 0">
+        <mat-card class="example-card" *ngFor="let provider of selectedProviders">
+          <mat-card-header>
+            <mat-card-subtitle>XYZ Insurance</mat-card-subtitle>
+            <mat-card-title>{{provider.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{provider.address}}</p>
+            <p>{{provider.phone}}</p>
+            <mat-divider></mat-divider>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+                type="submit"
+                mat-button
+                (click)="removeSavedProvider(provider)">
+              DELETE
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </section>
+  </div>
+</div>
