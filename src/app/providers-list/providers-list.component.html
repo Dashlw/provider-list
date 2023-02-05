@@ -25,16 +25,17 @@
           <p>{{provider.address}}</p>
           <p>{{provider.phone}}</p>
           <mat-divider></mat-divider>
-          <mat-card-actions>
-            <button
-                onclick="this.blur()"
-                type="button"
-                mat-button
-                (click)="saveProvider(provider)">
-              SAVE
-            </button>
-          </mat-card-actions>
         </mat-card-content>
+        <mat-card-actions>
+          <button
+              class="save"
+              onclick="this.blur()"
+              type="button"
+              mat-button
+              (click)="saveProvider(provider)">
+            SAVE
+          </button>
+        </mat-card-actions>
       </mat-card>
     </section>
     <section>
